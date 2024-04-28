@@ -8,6 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const server = http.createServer((req, res) => {
   try {
     res.writeHead(200, { "Content-Type": "text/html" });
+    fs.createReadStream(__dirname + "/index.html").pipe(res);
   } catch (e) {
     console.error(e);
     const error = { message: "Something went wrong" };
